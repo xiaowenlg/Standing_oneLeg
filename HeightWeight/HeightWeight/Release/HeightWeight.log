@@ -1,0 +1,100 @@
+﻿生成启动时间为 2020/11/24 16:56:27。
+     1>项目“E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\HeightWeight.vcxproj”在节点 2 上(Clean 个目标)。
+     1>CoreClean:
+         "C:\Program Files (x86)\Sysprogs\VisualGDB\\VisualGDB.exe" /clean "E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\HeightWeight.vcxproj" "/solution:E:\QFProject\Standing_oneLeg\HeightWeight\Standong_OneLeg.sln"  "/config:Release" "/platform:Win32"
+         VisualGDB: Run "C:\SysGCC\arm-eabi\bin\make.exe  CONFIG=Release clean -j8" in directory "E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight" on local computer
+         cmd /C del /S /Q Release
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\adc.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\adc.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\application.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\application.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\APPTooL.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\APPTooL.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\BspSound.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\BspSound.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\button.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\button.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\cmsis_os.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\cmsis_os.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\croutine.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\croutine.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\dwt_stm32_delay.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\dwt_stm32_delay.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\event_groups.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\event_groups.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\freertos.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\freertos.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\gpio.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\gpio.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\heap_4.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\heap_4.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\HeightWeight.bin
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\HeightWeight.elf
+         E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\HeightWeight.log
+         另一个程序正在使用此文件，进程无法访问。
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\HeightWeight.progstat
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\list.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\list.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\main.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\main.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\port.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\port.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\queue.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\queue.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\startup_stm32f103xb.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\startup_stm32f103xb.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_adc.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_adc.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_adc_ex.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_adc_ex.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_cortex.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_cortex.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_dma.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_dma.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_flash.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_flash.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_flash_ex.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_flash_ex.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_gpio.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_gpio.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_gpio_ex.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_gpio_ex.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_msp.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_msp.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_pwr.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_pwr.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_rcc.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_rcc.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_rcc_ex.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_rcc_ex.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_tim.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_tim.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_tim_ex.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_tim_ex.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_uart.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_hal_uart.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_it.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stm32f1xx_it.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stmflash.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\stmflash.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\system_stm32f1xx.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\system_stm32f1xx.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\tasks.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\tasks.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\tim.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\tim.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\timers.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\timers.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\ultrasonic.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\ultrasonic.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\usart.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\usart.o
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\WTN6.dep
+         删除文件 - E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\Release\WTN6.o
+     1>已完成生成项目“E:\QFProject\Standing_oneLeg\HeightWeight\HeightWeight\HeightWeight.vcxproj”(Clean 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.66
