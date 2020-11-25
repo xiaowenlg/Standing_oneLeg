@@ -18,6 +18,7 @@
   *单脚站立
   *2020/11/24:构建程序框架
   *2020/11/25:加入光电传感器检测
+  *2020/11/25:加入TFT 完成
   */
 /* USER CODE END Header */
 
@@ -115,7 +116,7 @@ int main(void)
   MX_USART3_UART_Init(115200);
   HAL_ADCEx_Calibration_Start(&hadc1);    //AD校准
   MX_TIM2_Init();
-  HAL_TIM_Base_Start_IT(&htim2);//TIM2基本中断
+  //HAL_TIM_Base_Start_IT(&htim2);//TIM2基本中断
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */

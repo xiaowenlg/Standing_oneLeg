@@ -22,6 +22,7 @@
 
 /* USER CODE BEGIN 0 */
 #include "gpio.h"
+#include "BspConfig.h"
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -101,7 +102,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	static uint16_t tim = 0;
 	if (TIM2 == htim->Instance)
 	{
-		if (tim++>1000)
+		if (tim++>TIMER2_COUNT_T)
 		{
 			tim = 0;
 			HAL_GPIO_TogglePin(LED_LEFT_PORT, LED_LEFT_PIN);

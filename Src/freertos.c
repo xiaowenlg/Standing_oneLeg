@@ -223,8 +223,12 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 		HAL_Delay(20);
 		//Firstmuis();					//播放开始音乐
 		//清零
-		write_variable_store_82_1word(TFT_RES_VAL_ADRESS, 0);//
-		write_variable_store_82_1word(TFT_INSTANTANEOUS_FORCE_ADRESS, 0);
+		write_register_80_1byte(TFT_BUTTON, 1);//开屏
+		write_variable_store_82_1word(TFT_LEFT_VALUE_ADRESS, 0);
+		write_variable_store_82_1word(TFT_RIGHT_VALUE_ADRESS, 0);
+		write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //开左
+		write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
+		write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 3);//关全
 	}
 	xSemaphoreGive(xSemaphore_WTN6_TFT);
 
@@ -236,27 +240,34 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 			//Uart_printf(&huart1, "for++++++++++++++++++\r\n");
 			 L_PH_val = HAL_GPIO_ReadPin(RL_PH_PORT, L_PH_PIN);//左光电开关
 			 R_PH_val = HAL_GPIO_ReadPin(RL_PH_PORT, R_PH_PIN);//右光电开关
-			if (L_PH_val==1&R_PH_val==0)						//左脚抬起
+			if (L_PH_val==1&&R_PH_val==0)						//左脚抬起
 			{
-				Uart_printf(&huart1, "Playing_LEFT,The value is**************====%d\r\n", Stance_time);
+				//Uart_printf(&huart1, "Playing_LEFT,The value is**************====%d\r\n", Stance_time);
 				//发送左脚信息
 				if (time_count <= 0)
 				{
+					write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 1); //开左
+					write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
+					write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 3);//关全
 					HAL_TIM_Base_Start_IT(&htim2);//开器定时器计时
-					Uart_printf(&huart1, "Timer2 is open\r\n");
 					time_count++;
 				}
+				write_variable_store_82_1word(TFT_LEFT_VALUE_ADRESS, Stance_time);
 			}
-			else if (L_PH_val == 0 & R_PH_val == 1)						//右脚抬起
+			else if (L_PH_val == 0 && R_PH_val == 1)						//右脚抬起
 			{
-				Uart_printf(&huart1, "Playing_RIGHT,The value is**************====%d\r\n", Stance_time);
+				//Uart_printf(&huart1, "Playing_RIGHT,The value is**************====%d\r\n", Stance_time);
 				//发送右脚信息
 				if (time_count <= 0)
 				{
+					write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
+					write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 1);//开右
+					write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 3);//关全
 					HAL_TIM_Base_Start_IT(&htim2);//开器定时器计时
 					Uart_printf(&huart1, "Timer2 is open\r\n");
 					time_count++;
 				}
+				write_variable_store_82_1word(TFT_RIGHT_VALUE_ADRESS, Stance_time);
 			}
 			else
 			{ 
@@ -264,8 +275,12 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 				{
 					Stand_OK_flag = 0;//脚落下
 					HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
+					write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
+					write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
+					write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 0);//打开动画
 					//播报时间
-					Uart_printf(&huart1, "play over ther value is**************====%d\r\n", Stance_time);
+					//Uart_printf(&huart1, "play over ther value is**************====%d\r\n", Stance_time);
+					PlayStanceTime((double)Stance_time-1);
 				}
 			
 			}
@@ -315,26 +330,35 @@ void  Key_CallBack(Key_Message index)
 
 	if (index.GPIO_Pin == KEY2_Pin) //开始按键
 	{
-		Uart_printf(&huart1,"The KEY_START is passed_pin8!\r\n");
-		BeginSound();
+		//Uart_printf(&huart1,"The KEY_START is passed_pin8!\r\n");
+		write_register_80_1byte(TFT_BUTTON, 1);//开屏
 		uint8_t L_Val = HAL_GPIO_ReadPin(RL_PH_PORT, L_PH_PIN);//左光电开关
 		uint8_t R_Val = HAL_GPIO_ReadPin(RL_PH_PORT, R_PH_PIN);//右光电开关
 		time_count = 0;											//清空
 		Stance_time = 0;										//时间累计清空
+		write_variable_store_82_1word(TFT_LEFT_VALUE_ADRESS, Stance_time);
+		write_variable_store_82_1word(TFT_RIGHT_VALUE_ADRESS, Stance_time);
 		if (L_Val == R_Val)
 		{
 			if (L_Val == 0 && R_Val == 0)
 			{
 				//两脚同时站到位
 				Stand_OK_flag = 1;
-				Uart_printf(&huart1, "Stand is ok!*************\r\n");
+				BeginSound();
+				//Uart_printf(&huart1, "Stand is ok!*************\r\n");
+				write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
+				write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
+				write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 0);//显示全脚
 			}
 			else if (L_Val == 1 && R_Val == 1)
 			{
 				//人没在站位
 				HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
 				Stand_OK_flag = 0;
-				Uart_printf(&huart1, "NO body standing*************\r\n");
+				//Uart_printf(&huart1, "NO body standing*************\r\n");
+				write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
+				write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
+				write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 1);//打开动画
 			}
 
 		}
@@ -342,7 +366,10 @@ void  Key_CallBack(Key_Message index)
 		{
 			HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
 			Stand_OK_flag = 0;
-			Uart_printf(&huart1, "Stand is ERROR!***********");
+			//Uart_printf(&huart1, "Stand is ERROR!***********");
+			write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
+			write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
+			write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 1);//打开动画
 		}
 	}
 	if (index.GPIO_Pin == KEY3_Pin) //备用按键

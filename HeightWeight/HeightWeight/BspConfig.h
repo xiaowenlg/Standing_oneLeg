@@ -61,6 +61,7 @@
 #define HUAN_ZAI_CI_YING			57						//欢迎再次使用
 #define WO_LI						29						//握力
 #define QING_YONG_LI_WO				38						//请用力握住握力器
+#define MIAO						20						//秒
 
 //音量值
 #define SOUND_VALUE					0xEF                  //音量       0xe0-----0xef
@@ -68,25 +69,18 @@
 #define TFT_VARIABLE_START		0x0001      //TFT屏变量起始地址
 #define TFT_BUTTON				0x4F		//TFT屏上的按钮
 //显示数据地址
-#define TFT_INSTANTANEOUS_FORCE_ADRESS		0x0001			//瞬时力
-#define TFT_SPEAK_GIF_ADRESS				0x0002			//喇叭动画	
-#define TFT_START_GIT_ADRESS				0x0004			//测试开始动画
+#define TFT_LEFT_VALUE_ADRESS				0x0001			//瞬时力
+#define TFT_RIGHT_VALUE_ADRESS				0x0002			//喇叭动画	
 #define TFT_BATTERY_GIT_ADRESS				0x0003			//电池图标
-#define TFT_RES_VAL_ADRESS					0x0005			//测试结果
-#define TFT_BACK_TIM_ADRESS					0x0006			//倒计时值
-#define TFT_TEST_ERROR_ADRESS				0x0007			//检测出错
-//调试界面地址
-#define TFT_SENSOR_ADRESS					0x0008			//传感器值
-#define TFT_EQUIPMENT_WEIGHT_ADRESS			0x0009			//设备自重
-#define TFT_SET_OVER_ADRESS					0x000A			//设置完成动画
+#define TFT_ALLFEET_GIT_ADRESS				0x0004			//测试开始动画
+#define TFT_LEFT_FEET_GIF_ADRESS			0x0005			//测试结果
+#define TFT_RIGHT_FEET_GIF_ADRESS			0x0006			//倒计时值
+
 					
 #define TEST_TIME_LONG(n)		n*1000						//检测时长单位s	
 #define SENSOR_PERIOD			500							//传感器检测周期
 
-#define COUNT_DOWN				10							//倒计时10个数
-#define WEIGHT_MIN				1000						//最小开启的拉力值
-#define NO_GRIP_NUM(n)			n*1000						//n秒提示一次:"请用力握住握力器"
-#define TIP_COUNT				2							//提示次数
+#define TIMER2_COUNT_T			1000						//定时器计数周期 1S一次
 //调试开关
 #define DEBUG_PRINT					1                                
 #endif // !__BSPCONFIG_H

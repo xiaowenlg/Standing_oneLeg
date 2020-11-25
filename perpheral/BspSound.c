@@ -24,6 +24,19 @@ void OverTest()					//测试结束
 {
 	WTN6_PlayOneByte(CESHI_JIESHU, 1000);
 }
+
+//播放站立时间
+uint8_t PlayStanceTime(double numdata)//身高
+{
+	uint8_t dat[16] = { 0 };
+	uint8_t reslen = 0, templen = 0;
+	uint8_t tdat[16] = { 0 };
+	templen = DataSeparation(numdata, tdat);
+	dat[0] = MIAO;
+	reslen = insertArray(dat, 1, tdat, templen, 0);
+	WTN6_PlayArray(reslen, dat, 1000);
+	return reslen;
+}
 uint8_t ProcessHeight(double numdata)//身高
 {
 	uint8_t dat[16] = { 0 };
