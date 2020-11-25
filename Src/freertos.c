@@ -266,7 +266,7 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 					write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 1);//开右
 					write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 3);//关全
 					HAL_TIM_Base_Start_IT(&htim2);//开器定时器计时
-					Uart_printf(&huart1, "Timer2 is open\r\n");
+					//Uart_printf(&huart1, "Timer2 is open\r\n");
 					time_count++;
 				}
 				TFT_Stance_time = Stance_time;
@@ -283,7 +283,11 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 					write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 0);//打开动画
 					//播报时间
 					//Uart_printf(&huart1, "play over ther value is**************====%d\r\n", Stance_time);
-					PlayStanceTime((double)TFT_Stance_time);
+					xSemaphoreTake(xSemaphore_WTN6_TFT, portMAX_DELAY);
+					{
+						PlayStanceTime((double)TFT_Stance_time);
+					}
+					xSemaphoreGive(xSemaphore_WTN6_TFT);
 				}
 			
 			}

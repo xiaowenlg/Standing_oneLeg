@@ -99,7 +99,6 @@ int main(void)
   xSemaphore_WTN6_TFT = xSemaphoreCreateMutex();//创建互斥量
   /* USER CODE BEGIN SysInit */
   DWT_Delay_Init();//微秒定时初始化
-  Hx711_Sck_Out(); //称重传感器初始化
   Key_Gpio_init(); //按键接口初始化
   Key_Regist();		//按键注册
   Led_Init();       //led初始化
@@ -109,7 +108,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
- 
   MX_ADC1_Init();
   MX_USART1_UART_Init(115200);
   MX_USART2_UART_Init(9600);

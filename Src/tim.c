@@ -105,7 +105,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		if (tim++>TIMER2_COUNT_T)
 		{
 			tim = 0;
-			HAL_GPIO_TogglePin(LED_LEFT_PORT, LED_LEFT_PIN);
+			HAL_GPIO_TogglePin(LED_LEFT_PORT, LED_LEFT_PIN);//线程运行指示
 			Stance_time++;     //时间累计
 		}
 		
