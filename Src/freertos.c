@@ -75,6 +75,7 @@ uint8_t Stand_OK_flag = 0;
 uint8_t time_count = 0;
 //检测数据
 uint16_t Stance_time = 0;
+uint16_t TFT_Stance_time = 0;
 //用到设置界面的值
 
 //语音播报地址数组
@@ -252,6 +253,7 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 					HAL_TIM_Base_Start_IT(&htim2);//开器定时器计时
 					time_count++;
 				}
+				TFT_Stance_time = Stance_time;
 				write_variable_store_82_1word(TFT_LEFT_VALUE_ADRESS, Stance_time);
 			}
 			else if (L_PH_val == 0 && R_PH_val == 1)						//右脚抬起
@@ -267,6 +269,7 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 					Uart_printf(&huart1, "Timer2 is open\r\n");
 					time_count++;
 				}
+				TFT_Stance_time = Stance_time;
 				write_variable_store_82_1word(TFT_RIGHT_VALUE_ADRESS, Stance_time);
 			}
 			else
@@ -280,7 +283,7 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 					write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 0);//打开动画
 					//播报时间
 					//Uart_printf(&huart1, "play over ther value is**************====%d\r\n", Stance_time);
-					PlayStanceTime((double)Stance_time-1);
+					PlayStanceTime((double)TFT_Stance_time);
 				}
 			
 			}
