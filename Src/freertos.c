@@ -73,6 +73,8 @@ uint16_t Weight_flash_array[2] = {0};
 //站到位标志
 uint8_t Stand_OK_flag = 0;
 uint8_t time_count = 0;
+//检测数据
+uint16_t Stance_time = 0;
 //用到设置界面的值
 
 //语音播报地址数组
@@ -193,6 +195,8 @@ void StartDefaultTask(void const * argument)
  // }
 	taskENTER_CRITICAL();//进入临界区
 	osDelay(500);     //等待系统稳定
+	//打开传感器电源
+	HAL_GPIO_WritePin(IR1_PORT, IR1_Pin | IR2_Pin, 1);
 	//传感器驱动线程
 	osThreadDef(SensorDrive, SensorDrive_CallBack, 4, 0, 128);
 	SensorDriveHandle = osThreadCreate(osThread(SensorDrive), NULL);
@@ -229,36 +233,45 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 		
 		if (Stand_OK_flag==1)//如果站位准确
 		{
-			Uart_printf(&huart1, "for++++++++++++++++++\r\n");
+			//Uart_printf(&huart1, "for++++++++++++++++++\r\n");
 			 L_PH_val = HAL_GPIO_ReadPin(RL_PH_PORT, L_PH_PIN);//左光电开关
 			 R_PH_val = HAL_GPIO_ReadPin(RL_PH_PORT, R_PH_PIN);//右光电开关
 			if (L_PH_val==1&R_PH_val==0)						//左脚抬起
 			{
-
+				Uart_printf(&huart1, "Playing_LEFT,The value is**************====%d\r\n", Stance_time);
+				//发送左脚信息
 				if (time_count <= 0)
 				{
 					HAL_TIM_Base_Start_IT(&htim2);//开器定时器计时
+					Uart_printf(&huart1, "Timer2 is open\r\n");
 					time_count++;
 				}
 			}
 			else if (L_PH_val == 0 & R_PH_val == 1)						//右脚抬起
 			{
+				Uart_printf(&huart1, "Playing_RIGHT,The value is**************====%d\r\n", Stance_time);
+				//发送右脚信息
 				if (time_count <= 0)
 				{
 					HAL_TIM_Base_Start_IT(&htim2);//开器定时器计时
+					Uart_printf(&huart1, "Timer2 is open\r\n");
 					time_count++;
 				}
 			}
 			else
 			{ 
-				Stand_OK_flag = 0;//脚落下
-				HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
-				//播报时间
-				Uart_printf(&huart1, "Beging playing!**************====%d\r\n");
+				if (time_count>0)       //必须定时器开过一次，才关定时器
+				{
+					Stand_OK_flag = 0;//脚落下
+					HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
+					//播报时间
+					Uart_printf(&huart1, "play over ther value is**************====%d\r\n", Stance_time);
+				}
+			
 			}
 			
 		}
-		osDelay(SENSOR_PERIOD);                                                             //周期T=100ms 频率F = 10Hz
+		osDelay(SENSOR_PERIOD);                                                             //周期T=500ms 频率F = 2Hz
 	}
 }
 void  ButtonProcess_CallBack(void const *argument)
@@ -307,19 +320,21 @@ void  Key_CallBack(Key_Message index)
 		uint8_t L_Val = HAL_GPIO_ReadPin(RL_PH_PORT, L_PH_PIN);//左光电开关
 		uint8_t R_Val = HAL_GPIO_ReadPin(RL_PH_PORT, R_PH_PIN);//右光电开关
 		time_count = 0;											//清空
+		Stance_time = 0;										//时间累计清空
 		if (L_Val == R_Val)
 		{
 			if (L_Val == 0 && R_Val == 0)
 			{
 				//两脚同时站到位
 				Stand_OK_flag = 1;
+				Uart_printf(&huart1, "Stand is ok!*************\r\n");
 			}
 			else if (L_Val == 1 && R_Val == 1)
 			{
 				//人没在站位
 				HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
 				Stand_OK_flag = 0;
-				Uart_printf(&huart1, "L_Val==R_Val***********\r\n");
+				Uart_printf(&huart1, "NO body standing*************\r\n");
 			}
 
 		}
@@ -327,6 +342,7 @@ void  Key_CallBack(Key_Message index)
 		{
 			HAL_TIM_Base_Stop_IT(&htim2); //关闭定时器中断
 			Stand_OK_flag = 0;
+			Uart_printf(&huart1, "Stand is ERROR!***********");
 		}
 	}
 	if (index.GPIO_Pin == KEY3_Pin) //备用按键

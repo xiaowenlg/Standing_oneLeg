@@ -15,16 +15,8 @@
   *                             www.st.com/SLA0044
   *
   ******************************************************************************
-  *拉力检测
-  *2020/10/27:项目完成
-  *串口1：蓝牙（串口调试完，但没焊接蓝牙模块）
-  *串口2：超声波传感器---------------完成
-  *串口3：TFT屏----------------------完成
-  *ADC：ADC_CHANNEL_4  PA4
-  *秤重传感器：DT(数据)--PB0，SCK(时钟)----PB1         采用5V电压
-  *重量复位按键：PA0
-  *距离复位按键：PA1
-  *播放按键：PB15
+  *单脚站立
+  *2020/11/24:构建程序框架
   */
 /* USER CODE END Header */
 
@@ -114,7 +106,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  //MX_GPIO_Init();
+  MX_GPIO_Init();
  
   MX_ADC1_Init();
   MX_USART1_UART_Init(115200);

@@ -105,6 +105,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		{
 			tim = 0;
 			HAL_GPIO_TogglePin(LED_LEFT_PORT, LED_LEFT_PIN);
+			Stance_time++;     // ±º‰¿€º∆
 		}
 		
 	}

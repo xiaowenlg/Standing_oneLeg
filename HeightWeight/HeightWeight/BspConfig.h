@@ -81,7 +81,7 @@
 #define TFT_SET_OVER_ADRESS					0x000A			//设置完成动画
 					
 #define TEST_TIME_LONG(n)		n*1000						//检测时长单位s	
-#define SENSOR_PERIOD			100							//传感器检测周期
+#define SENSOR_PERIOD			500							//传感器检测周期
 
 #define COUNT_DOWN				10							//倒计时10个数
 #define WEIGHT_MIN				1000						//最小开启的拉力值

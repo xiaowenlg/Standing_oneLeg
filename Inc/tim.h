@@ -31,7 +31,7 @@
 /* USER CODE END Includes */
 
 extern TIM_HandleTypeDef htim2;
-
+extern uint16_t Stance_time;
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
