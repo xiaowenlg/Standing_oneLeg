@@ -509,7 +509,7 @@ int my_vsprintf(char *buf, const char *fmt, va_list args)
 			str = convert_func(str, va_arg(args, int), 16);
 			break;
 		case 'f':
-			str = convert_func(str, va_arg(args, float), 10);
+			str = convert_func(str, va_arg(args, double), 10);
 			break;
 		default:
 			break;

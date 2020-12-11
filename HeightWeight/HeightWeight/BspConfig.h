@@ -44,7 +44,7 @@
 #define CESHI						27						  //测试
 #define TI_ZHI_ZHI_SHU				28						//体质指数
 #define QING_ZHAN_LI				37						//请您站立在测试位并保持静止不动，以增加测试结果准确性
-#define YIN_XIAO_61					61						//音效61
+#define YIN_XIAO_61					67						//音效61
 #define QING_AN_KAISHI				41						//请按开始建开始
 #define CESHI_KAISHI				44						//测试开始
 #define CESHI_JIESHU				45						//测试结束
@@ -62,6 +62,11 @@
 #define WO_LI						29						//握力
 #define QING_YONG_LI_WO				38						//请用力握住握力器
 #define MIAO						20						//秒
+#define DAN_JIAO_ZHAN_LI			58						//单脚站立
+#define QING_ZHAN_LI_CE_WEI			63						//请站立到测试位
+#define NIN_BEN_CI					34						//您本次
+#define ZHAN_WEI_CUO_WU				61						//站位错误
+#define QING_CHONG_XIN_KAI_SHI		62						//请重新开始
 
 //音量值
 #define SOUND_VALUE					0xEF                  //音量       0xe0-----0xef

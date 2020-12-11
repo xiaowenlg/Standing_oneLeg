@@ -477,7 +477,7 @@ int insertArray(uint8_t *arr, uint16_t arrlen, uint8_t *inarr, uint16_t inarrlen
 	if ((arrlen + inarrlen) < 65536)
 	{
 		//memcpy(&buf_date[bufdateIndex], resdate, resdatelen);
-		memcpy(&arr[pos + inarrlen], &arr[pos], arrlen - pos + 1);//数组从pos后，后移inarrlen位
+		memcpy(&arr[pos + inarrlen], &arr[pos], arrlen - pos);//数组从pos后，后移inarrlen位
 		memcpy(&arr[pos], inarr, inarrlen);
 
 		res = arrlen + inarrlen;

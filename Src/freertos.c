@@ -227,7 +227,7 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 		write_register_80_1byte(TFT_BUTTON, 1);//开屏
 		write_variable_store_82_1word(TFT_LEFT_VALUE_ADRESS, 0);
 		write_variable_store_82_1word(TFT_RIGHT_VALUE_ADRESS, 0);
-		write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //开左
+		write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
 		write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
 		write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 3);//关全
 	}
@@ -366,6 +366,8 @@ void  Key_CallBack(Key_Message index)
 				write_variable_store_82_1word(TFT_LEFT_FEET_GIF_ADRESS, 3); //关左
 				write_variable_store_82_1word(TFT_RIGHT_FEET_GIF_ADRESS, 3);//关右
 				write_variable_store_82_1word(TFT_ALLFEET_GIT_ADRESS, 1);//打开动画
+				WTN6_PlayOneByte(ZHAN_WEI_CUO_WU,1000);
+				WTN6_PlayOneByte(QING_CHONG_XIN_KAI_SHI, 1000);
 			}
 
 		}

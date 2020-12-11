@@ -5,12 +5,5 @@
 void Firstmuis();                    //测试开始，播放语音
 void BeginSound();            //开始测试播放
 //播放函数
-uint8_t ProcessHeight(double numdata); //身高
-uint8_t ProcessWeight(double numdata);//体重;
-uint8_t ProcessBMI(double numdata);//bmi;
-double Cal_BMI(double hei, double wei); //身高/体重的平方;
-void PlayHei_Wei(double height, double wei);
-double Cal_BMI_TFT(uint32_t wi, uint16_t hi);
-uint16_t Average_arr(uint32_t *arr, uint8_t len);//求数组平均值
-uint8_t ProcessGrip(double numdata);//握持力
+uint8_t PlayStanceTime(double numdata);
 #endif // !__BSPSOUND_H

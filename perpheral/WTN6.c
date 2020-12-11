@@ -2,13 +2,13 @@
 /*WTN6œµ¡– ”Ô“Ù–æ∆¨«˝∂Ø                                                 */
 /************************************************************************/
 
-
+#include "FreeRTOS.h"
 #include "WTN6.h"
 #include "system.h"
 #include "dwt_stm32_delay.h"
 #include "stdio.h"
 #include "math.h"
-
+#include "cmsis_os.h"
 void WTN6_Gpio_Init()
 {
 	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
