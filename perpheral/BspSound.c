@@ -5,11 +5,11 @@
 #include "math.h"
 #include "WTN6.h"
 #include "usart.h"
-uint8_t sonundArray[5] = { HUAN_YING, BEN_XIANG_MU, WO_LI, CESHI, QING_YONG_LI_WO };
+uint8_t sonundArray[4] = { HUAN_YING, BEN_XIANG_MU, DAN_JIAO_ZHAN_LI, CESHI};
 //uint8_t dalaytim[4] = { 0xf3,YIN_XIAO_61,0xf8,10};				//F3H + µÿ÷∑ + F8H + 10H
 void Firstmuis()            //ø™Õ∑”Ô“Ù
 {
-	WTN6_PlayArray(5, sonundArray,5000);
+	WTN6_PlayArray(4, sonundArray,5000);
 	osDelay(300);
 	WTN6_PlayOneByte(QING_AN_KAISHI, 5000);
 	//WTN6_PlayArray(4, dalaytim);

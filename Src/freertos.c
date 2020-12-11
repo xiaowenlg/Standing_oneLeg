@@ -222,7 +222,7 @@ void SensorDrive_CallBack(void const *argument)             //传感器操作线程----
 	{
 		WTN6_PlayOneByte(SOUND_VALUE, 1000);//调节音量
 		HAL_Delay(20);
-		//Firstmuis();					//播放开始音乐
+		Firstmuis();					//播放开始音乐
 		//清零
 		write_register_80_1byte(TFT_BUTTON, 1);//开屏
 		write_variable_store_82_1word(TFT_LEFT_VALUE_ADRESS, 0);
